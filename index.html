@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金子あさみ LINE配信サポートアプリ</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>金子あさみ LINE配信サポート</h1>
+                <p class="subtitle">イベント告知文を簡単に作成できます</p>
+            </div>
+        </header>
+
+        <section id="inputSection">
+            <div class="progress-bar">
+                <div class="progress-step active" id="step1Indicator">イベント選択</div>
+                <div class="progress-step" id="step2Indicator">詳細情報</div>
+                <div class="progress-step" id="step3Indicator">確認・生成</div>
+            </div>
+
+            <form id="eventForm">
+                <!-- ステップ1: イベント選択 -->
+                <div class="form-step active" id="step1">
+                    <h2>イベントを選択してください</h2>
+                    
+                    <div class="template-selection">
+                        <div class="template-card" data-template="maya">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm4.25-10.25L11 14V8h1.5v5.25l4.5-3.25.75 1.25z"></path></svg>
+                            </div>
+                            <div class="template-title">マヤ暦セミナー</div>
+                        </div>
+                        <div class="template-card" data-template="yoga">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M13 9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM7 9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm5.65 12c-3.93 0-6.45-2.5-7.65-4.5 2.05-2.55 4.75-4.5 7.65-4.5 2.9 0 5.6 1.95 7.65 4.5-1.2 2-3.72 4.5-7.65 4.5zm0-11c-4.7 0-8.7 3.05-10.65 6.5C3.95 19.95 7.95 23 12.65 23s8.7-3.05 10.65-6.5c-1.95-3.45-5.95-6.5-10.65-6.5zM7 4.5C7 3.12 8.12 2 9.5 2S12 3.12 12 4.5 10.88 7 9.5 7 7 5.88 7 4.5zM15 4.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5S15 5.88 15 4.5z"></path></svg>
+                            </div>
+                            <div class="template-title">ヨガクラス</div>
+                        </div>
+                        <div class="template-card" data-template="session">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5L11 14V8h1.5v5.25l4.5-3.25.75 1.25z"></path></svg>
+                            </div>
+                            <div class="template-title">個人セッション</div>
+                        </div>
+                        <div class="template-card" data-template="salon">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5 2.05-2.55 4.75-4.5 7.65-4.5-1.2 2-3.72 4.5-7.65 4.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+                            </div>
+                            <div class="template-title">シンクロサロン</div>
+                        </div>
+                        <div class="template-card" data-template="workshop">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M19.01 3h-14c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 7.5c0 .83-.67 1.5-1.5 1.5.83 0 1.5.67 1.5 1.5V15c0 1.11-.9 2-2 2h-4v-2h4v-2h-2v-2h2V9h-4V7h4c1.1 0 2 .89 2 2v1.5z"></path></svg>
+                            </div>
+                            <div class="template-title">ワークショップ</div>
+                        </div>
+                        <div class="template-card" data-template="online">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"></path></svg>
+                            </div>
+                            <div class="template-title">オンラインイベント</div>
+                        </div>
+                        <div class="template-card" data-template="custom">
+                            <div class="template-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                            </div>
+                            <div class="template-title">カスタムイベント</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group hidden" id="customEventTypeGroup">
+                        <label for="eventType">イベントの種類 <span class="required">*</span></label>
+                        <input type="text" id="eventType" required placeholder="イベントの種類を入力">
+                    </div>
+
+                    <div class="button-group">
+                        <div></div> <!-- 左側の空白要素 -->
+                        <button type="button" class="primary-button" id="nextToStep2">次へ</button>
+                    </div>
+                </div>
+
+                <!-- ステップ2: 詳細情報 -->
+                <div class="form-step" id="step2">
+                    <h2>イベント詳細情報</h2>
+                    
+                    <div class="form-group">
+                        <label for="eventDate">開催日 <span class="required">*</span></label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventTime">開催時間 <span class="required">*</span></label>
+                        <select id="eventTime" required>
+                            <option value="">選択してください</option>
+                            <option value="10:00〜12:00">午前 10:00〜12:00</option>
+                            <option value="13:00〜15:00">午後 13:00〜15:00</option>
+                            <option value="14:00〜16:00">午後 14:00〜16:00</option>
+                            <option value="19:00〜21:00">夜間 19:00〜21:00</option>
+                            <option value="その他">その他の時間</option>
+                        </select>
+                        <input type="text" id="customEventTime" class="hidden" placeholder="例: 10:00〜12:00">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventLocation">開催場所 <span class="required">*</span></label>
+                        <select id="eventLocation" required>
+                            <option value="">選択してください</option>
+                            <option value="オンライン（Zoom）">オンライン（Zoom）</option>
+                            <option value="シンクロカフェ">シンクロカフェ</option>
+                            <option value="渋谷カルチャーセンター">渋谷カルチャーセンター</option>
+                            <option value="代々木公園">代々木公園</option>
+                            <option value="その他">その他の場所</option>
+                        </select>
+                        <input type="text" id="customEventLocation" class="hidden" placeholder="開催場所を入力">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventPrice">参加費 <span class="required">*</span></label>
+                        <select id="eventPrice" required>
+                            <option value="">選択してください</option>
+                            <option value="3,000円">3,000円</option>
+                            <option value="5,000円">5,000円</option>
+                            <option value="7,000円">7,000円</option>
+                            <option value="10,000円">10,000円</option>
+                            <option value="15,000円">15,000円</option>
+                            <option value="無料">無料</option>
+                            <option value="その他">その他の金額</option>
+                        </select>
+                        <input type="text" id="customEventPrice" class="hidden" placeholder="例: 5,000円（税込）">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventCapacity">定員</label>
+                        <select id="eventCapacity">
+                            <option value="">指定なし</option>
+                            <option value="3名限定">3名限定</option>
+                            <option value="5名限定">5名限定</option>
+                            <option value="8名限定">8名限定</option>
+                            <option value="10名限定">10名限定</option>
+                            <option value="その他">その他の定員</option>
+                        </select>
+                        <input type="text" id="customEventCapacity" class="hidden" placeholder="例: 6名限定">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">イベント内容 <span class="required">*</span></label>
+                        <textarea id="eventDescription" rows="5" required placeholder="イベントの内容を入力してください"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventBenefit">参加者が得られる価値</label>
+                        <textarea id="eventBenefit" rows="5" placeholder="参加者が得られる価値を入力してください（空欄可）"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="applicationUrl">申し込みURL</label>
+                        <input type="text" id="applicationUrl" placeholder="申し込みURLを入力（空欄可）">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="secondary-button" id="backToStep1">戻る</button>
+                        <button type="button" class="primary-button" id="nextToStep3">次へ</button>
+                    </div>
+                </div>
+
+                <!-- ステップ3: 確認 -->
+                <div class="form-step" id="step3">
+                    <h2>入力内容の確認</h2>
+                    
+                    <div class="summary-container">
+                        <div class="summary-item">
+                            <div class="summary-label">イベント種類:</div>
+                            <div class="summary-value" id="summaryEventType"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">開催日:</div>
+                            <div class="summary-value" id="summaryEventDate"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">開催時間:</div>
+                            <div class="summary-value" id="summaryEventTime"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">開催場所:</div>
+                            <div class="summary-value" id="summaryEventLocation"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">参加費:</div>
+                            <div class="summary-value" id="summaryEventPrice"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">定員:</div>
+                            <div class="summary-value" id="summaryEventCapacity"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">イベント内容:</div>
+                            <div class="summary-value" id="summaryEventDescription"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">得られる価値:</div>
+                            <div class="summary-value" id="summaryEventBenefit"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">申し込みURL:</div>
+                            <div class="summary-value" id="summaryApplicationUrl"></div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="secondary-button" id="backToStep2">戻る</button>
+                        <button type="button" class="primary-button" id="generateButton">告知文を生成する</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section id="resultSection" class="hidden">
+            <h2>告知文生成結果</h2>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">初回告知</button>
+                <button class="tab-button" data-tab="tab2">価値提供</button>
+                <button class="tab-button" data-tab="tab3">募集開始</button>
+                <button class="tab-button" data-tab="tab4">残席告知</button>
+                <button class="tab-button" data-tab="tab5">最終告知</button>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <div class="message-preview">
+                        <div class="message-header">
+                            <div class="message-title">初回告知</div>
+                            <div class="message-date" id="date1"></div>
+                        </div>
+                        <div class="message-body" id="message1"></div>
+                        <button class="copy-button" data-message="message1">コピー</button>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="tab2">
+                    <div class="message-preview">
+                        <div class="message-header">
+                            <div class="message-title">価値提供</div>
+                            <div class="message-date" id="date2"></div>
+                        </div>
+                        <div class="message-body" id="message2"></div>
+                        <button class="copy-button" data-message="message2">コピー</button>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="tab3">
+                    <div class="message-preview">
+                        <div class="message-header">
+                            <div class="message-title">募集開始</div>
+                            <div class="message-date" id="date3"></div>
+                        </div>
+                        <div class="message-body" id="message3"></div>
+                        <button class="copy-button" data-message="message3">コピー</button>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="tab4">
+                    <div class="message-preview">
+                        <div class="message-header">
+                            <div class="message-title">残席告知</div>
+                            <div class="message-date" id="date4"></div>
+                        </div>
+                        <div class="message-body" id="message4"></div>
+                        <button class="copy-button" data-message="message4">コピー</button>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="tab5">
+                    <div class="message-preview">
+                        <div class="message-header">
+                            <div class="message-title">最終告知</div>
+                            <div class="message-date" id="date5"></div>
+                        </div>
+                        <div class="message-body" id="message5"></div>
+                        <button class="copy-button" data-message="message5">コピー</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="secondary-button" id="newEventButton">新しいイベントを作成</button>
+            </div>
+        </section>
+
+        <footer>
+            <p> 2025 金子あさみ LINE配信サポートアプリ</p>
+        </footer>
+    </div>
+
+    <script src="script_new.js"></script>
+</body>
+</html>
